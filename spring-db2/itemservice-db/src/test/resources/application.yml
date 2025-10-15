@@ -2,13 +2,22 @@ spring:
   profiles:
     active: test
 
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/Development/h2/databases/spring_db2_test
-    username: sa
-    password:
+#  datasource:
+#    url: jdbc:h2:tcp://localhost/~/Development/h2/databases/spring_db2_test
+#    username: sa
+#    password:
 
 logging:
   level:
     org:
       springframework:
         jdbc: debug
+    hello:
+      itemservice:
+        repository:
+          mybatis: trace
+
+mybatis:
+  type-aliases-package: hello.itemservice.domain
+  configuration:
+    map-underscore-to-camel-case: true
